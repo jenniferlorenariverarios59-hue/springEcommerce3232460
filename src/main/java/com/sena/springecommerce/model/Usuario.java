@@ -10,7 +10,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "ususarios ")
+@Table(name = "usuarios ")
 public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // anoataciones JOA
@@ -24,10 +24,10 @@ public class Usuario {
 	private String password;
 
 	// RELACINES EN DB
-	@OneToMany(mappedBy = "usuarios")
+	@OneToMany(mappedBy = "usuario")
 	private List<Producto> productos;
 
-	@OneToMany(mappedBy = " usuarios ")
+	@OneToMany(mappedBy = "usuario")
 	private List<Orden> ordenes;
 
 	// constructor vacio
