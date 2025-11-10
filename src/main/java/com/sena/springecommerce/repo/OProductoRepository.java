@@ -1,4 +1,4 @@
-package com.sena.springecommerce.service.repositorio;
+package com.sena.springecommerce.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.sena.springecommerce.model.Producto;
 
 @Repository
-
-public interface IProductoRepository extends JpaRepository<Producto, Integer> {
+public interface OProductoRepository extends JpaRepository<Producto, Integer> {
 
 }

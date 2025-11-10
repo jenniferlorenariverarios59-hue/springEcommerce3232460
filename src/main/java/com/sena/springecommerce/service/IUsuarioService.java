@@ -1,0 +1,29 @@
+package com.sena.springecommerce.service;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.sena.springecommerce.model.Usuario;
+
+public interface IUsuarioService {
+	
+	public Usuario save (Usuario usuario);
+	
+	public Optional<Usuario> get (Integer id);
+	
+	public void update (Usuario usuario);
+	
+	public void delate (Integer id);
+	
+	Optional<Usuario> findById(Integer id);
+	
+
+	Optional<Usuario> findById(String email);
+	
+	List<Usuario> findAll();
+	
+	
+	
+	
+	
+	}
