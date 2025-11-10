@@ -1,5 +1,6 @@
 package com.sena.springecommerce.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -29,23 +30,49 @@ public class OrdenServiceImplement implements IOrdenService {
 	}
 
 	@Override
-	public List<Orden> FinUsuario(Usuario usuario) {
+	public List<Orden> FindUsuario(Usuario usuario) {
 		// TODO Auto-generated method stub
-		return ordenRepository.f;
+		return ordenRepository.findByUsuario(usuario);
 	}
 
 	@Override
 	public Optional<Orden> findById(Integer id) {
 		// TODO Auto-generated method stub
-		return Optional.empty();
+		return ordenRepository.findById(id);
 	}
 
 	@Override
 	public String generarNumero_Orden() {
 		// TODO Auto-generated method stub
-		return null;
+		
+			int numero = 0;
+			String numeroConcatenado = "";
+			List<Orden> ordenes = findAll();
+			List<Integer> numeros = new ArrayList<>();
+			//Funciones de java 8
+			//variable anonima
+			ordenes.stream().forEach(o-> numeros.add(Integer.parseInt(o.getNumero())));
+			//validacion
+			if (ordenes.isEmpty()) {
+				numero = 1;
+			} else {
+				numero = numeros.stream().max(Integer::compare).get();
+				numero++;
+			}
+			
+			//numero de orden
+			if (numero < 10) {
+				numeroConcatenado = "000000000000" + String .valueOf(numero);
+			}else if (numero < 100) {
+				numeroConcatenado = "00000000000" + String .valueOf(numero);
+			}else if (numero < 1000) {
+				numeroConcatenado = "0000000000" + String .valueOf(numero);
+				
+			}
+			return numeroConcatenado;
+		}
 	}
 
 	
 
-}
+

@@ -39,9 +39,8 @@ public class ProductoServiceImplent implements IProductoService {
 	}
 
 	@Override
-	public List<Producto> findAll() {-*+9
-		
-		
+	public List<Producto> findAll() {
+
 		// TODO Auto-generated method stub
 		return productiRepository.findAll();
 	}
